@@ -13,6 +13,15 @@ var listaPecas = map[int]string{
 	6: "rei",
 }
 
+var (
+	peao   int
+	bispo  int
+	cavalo int
+	torre  int
+	rainha int
+	rei    int
+)
+
 var tabuleiro = [][]int{
 	{0, 0, 0, 0, 0, 0, 0, 0},
 	{0, 0, 0, 0, 0, 0, 0, 0},
@@ -25,8 +34,6 @@ var tabuleiro = [][]int{
 }
 
 func main() {
-
-	fmt.Println(listaPecas[3])
 
 	for i := 0; i < 8; i++ {
 		tabuleiro[0][0] = 4
@@ -51,8 +58,30 @@ func main() {
 		tabuleiro[7][7] = 4
 	}
 
-	for i, v := range tabuleiro {
+	fmt.Println("Tabuleiro de Xadrez")
+	for _, v := range tabuleiro {
 
-		fmt.Println(i, v)
+		for _, v := range v {
+			if v == 1 {
+				peao++
+			} else if v == 2 {
+				bispo++
+			} else if v == 3 {
+				cavalo++
+			} else if v == 4 {
+				torre++
+			} else if v == 5 {
+				rainha++
+			} else if v == 6 {
+				rei++
+			}
+		}
+		fmt.Printf("%v \n", v)
 	}
+	fmt.Printf("\nO total de peoes eh:\t %v \n", peao)
+	fmt.Printf("O total de bispos eh:\t %v \n", bispo)
+	fmt.Printf("O total de cavalos eh:\t %v \n", cavalo)
+	fmt.Printf("O total de torres eh:\t %v \n", torre)
+	fmt.Printf("O total de rainhas eh:\t %v \n", rainha)
+	fmt.Printf("O total de reis eh:\t %v \n", rei)
 }
